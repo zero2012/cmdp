@@ -21,6 +21,17 @@ linux下载
 [cmdp-for-linux-64](https://github.com/yurencloud/cmdp/raw/master/linux/cmdp)
 工具可以直接使用，但建议将命令工具所在目录添加到系统路径path中
 
+在mac或linux若出现`Permission denied`问题，请用下面方法添加可执行权限
+~~~
+// mac或linux 建议把cmdp文件下载至$GOPATH/bin/目录下，并添加可执行权限
+chmod +x cmdp
+~~~
+
+npm 安装
+~~~
+// 使用node在cmdp基础上简单封装，缺点，输出没有色彩
+npm install -g yu.cmdp
+~~~
 
 ### 2.使用
 ~~~
