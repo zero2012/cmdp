@@ -14,9 +14,9 @@
 
 ### 1.安装
 windows下载
-[cmdp-for-windows-64](https://github.com/yurencloud/cmdp/raw/master/cmdp)
+[cmdp-for-windows-64](https://github.com/yurencloud/cmdp/raw/master/cmdp.exe)
 mac和linux下载
-[cmdp-for-linux-64](https://github.com/yurencloud/cmdp/raw/master/cmdp.exe)
+[cmdp-for-linux-64](https://github.com/yurencloud/cmdp/raw/master/cmdp)
 
 工具可以直接使用，但建议将命令工具所在目录添加到系统路径path中
 
