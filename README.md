@@ -1,86 +1,82 @@
-## cmdp 命令行提示工具（远程同步）
+[查看中文文档](https://github.com/yurencloud/cmdp/README-zh.md)
+## cmdp command prompt tool
 
-#### 使用场景：
+## Usage Scenes
 
-命令行参数太多，太难记，平常可能会为了1条命令，新建一个笔记，来记录，查询麻烦。
-虽然linux有ctrl+R查询，但对于经常创建linux系统，使用不同的服务器，不同的电脑的人来说，命令提示不能同步到所有
-电脑。
+It is hard to remember too many command parameters. It might also be troublesome
+to create a note to record maybe just for a single command and look it up. Though
+you guys can look up a command by Ctrl+R in linux, those who always build linux
+system, and use different servers or computers, will find the command prompt
+actually cannot sync to all the computers.
 
-#### 作用：
+## Function
+Cmdp can quickly record a command, code, account, passcode, text, etc., notes are
+also allowed. Relevant contents can be quickly found through key words, and even
+sync remotely to other computers. A user can acquire all the reminders once he or
+she logs in with the same user name, even in different computers with different
+systems and servers.
 
-快速记录一条命令，代码，账号，密码，文字等内容，并允许添加注释。可根据关键词快速查找到相关的内容，并且
-可以远程同步。
-不同电脑，系统，服务器，只要登录相同用户，即可同步获取所有提示。
-
-### 1.安装
-
-#### 1.1 若你已经安装go
-可直接使用下面命令安装
+## 1. Installation
+#### 1.1 If you have installed `go`
+You can directly install it according to the command listed below.
 ~~~
 go get github.com/yurencloud/cmdp
 ~~~
 
-#### 1.2 下载安装
+#### 1.2 Download & Installation
 
+[windows download](https://github.com/yurencloud/cmdp/raw/master/windows/cmdp.exe)
 
-[windows下载](https://github.com/yurencloud/cmdp/raw/master/windows/cmdp.exe)
+[mac download](https://github.com/yurencloud/cmdp/raw/master/mac/cmdp)
 
-[mac下载](https://github.com/yurencloud/cmdp/raw/master/mac/cmdp)
+[linux download](https://github.com/yurencloud/cmdp/raw/master/linux/cmdp)
 
-[linux下载](https://github.com/yurencloud/cmdp/raw/master/linux/cmdp)
+You can directly use the tool, but are suggested adding the directory of the command tool to the system PATH.
 
-工具可以直接使用，但建议将命令工具所在目录添加到系统路径`PATH`中
-
-在mac或linux若出现`Permission denied`问题，请用下面方法添加可执行权限
+If `Permission denied` occurs in mac or linux, please execute permission by the following method:
 ~~~
 chmod +x cmdp
 ~~~
-
-#### 1.3 npm 安装
+#### 1.3 Use node to simply package on the basis of cmdp, while no color shows after output.
 ~~~
-// 使用node在cmdp基础上简单封装，缺点，输出没有色彩
 npm install -g yu.cmdp
 ~~~
 
-### 2.使用
-~~~
-以下均以linux下操作为例，windows下改为cmdp.exe命令就可以
-~~~
-#### 2.1注册
+## 2. Usage
+All the examples are listed under linux. You can change it into cmdp.exe so that it can work in windows.
+
+#### 2.1 Register
 ~~~
 cmdp -register -u USERNAME -p PASSWORD
 ~~~
-注册后自动在工具根目录下生成token文件，*请不要删除*，token有效期1年
-
-#### 2.2登录
-若已经注册，或token过期，或token删除，请使用登录功能，会生成新的token
+token file will be created after register, do not delete token file, token will expired after one year.
+#### 2.2 Login
+If you have registered or the token has expired, or was deleted, please use the function of log in, then the new token will turn up.
 ~~~
 cmdp -login -u USERNAME -p PASSWORD
 ~~~
-
-#### 2.3添加命令行提示
+#### 2.3 Add command prompt
 ~~~
-cmdp -c "docker start mysql" -m "使用docker启动mysql容器"
+cmdp -c "docker start mysql" -m "use docker to create a mysql container"
 ~~~
-
-#### 2.4搜索命令行
+#### 2.4 Search command prompt
 ~~~
 cmdp mysql
 ~~~
-显示结果，彩色
+The result appears, colored
 ~~~
-docker start mysql  使用docker启动mysql容器 id:2
-mysql -uroot -p     登入mysql id:31
+docker start mysql  use docker to create a mysql container id:2
+mysql -uroot -p     login mysql id:31
 results: 2
 ~~~
 
-#### 2.5删除命令行
-先查询，后根据结尾显示的id进行删除
+#### 2.5 Delete command
+Look it up first, then delete it according to the ID that shows in the end.
 ~~~
 cmdp -d ID
 ~~~
 
-#### 2.6修改用户登录密码
+#### 2.6 Change the users’ login password
 ~~~
 cmdp -reset -p NEW_PASSWORD
 ~~~
