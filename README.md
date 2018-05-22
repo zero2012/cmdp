@@ -13,21 +13,30 @@
 不同电脑，系统，服务器，只要登录相同用户，即可同步获取所有提示。
 
 ### 1.安装
-windows下载
-[cmdp-for-windows-64](https://github.com/yurencloud/cmdp/raw/master/windows/cmdp.exe)
-mac下载
-[cmdp-for-mac-64](https://github.com/yurencloud/cmdp/raw/master/mac/cmdp)
-linux下载
-[cmdp-for-linux-64](https://github.com/yurencloud/cmdp/raw/master/linux/cmdp)
-工具可以直接使用，但建议将命令工具所在目录添加到系统路径path中
+
+#### 1.1 若你已经安装go
+可直接使用下面命令安装
+~~~
+go get github.com/yurencloud/cmdp
+~~~
+
+#### 1.2 下载安装
+
+
+[windows下载](https://github.com/yurencloud/cmdp/raw/master/windows/cmdp.exe)
+
+[mac下载](https://github.com/yurencloud/cmdp/raw/master/mac/cmdp)
+
+[linux下载](https://github.com/yurencloud/cmdp/raw/master/linux/cmdp)
+
+工具可以直接使用，但建议将命令工具所在目录添加到系统路径`PATH`中
 
 在mac或linux若出现`Permission denied`问题，请用下面方法添加可执行权限
 ~~~
-// mac或linux 建议把cmdp文件下载至$GOPATH/bin/目录下，并添加可执行权限
 chmod +x cmdp
 ~~~
 
-npm 安装
+#### 1.3 npm 安装
 ~~~
 // 使用node在cmdp基础上简单封装，缺点，输出没有色彩
 npm install -g yu.cmdp
