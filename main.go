@@ -31,6 +31,7 @@ func main() {
 		result := Register(*username, *password)
 		// 把token写入本地
 		if(result.Status!=SUCCESS){
+			printRespond(result)
 			return
 		}
 		ioutil.WriteFile("token", []byte(result.Data.(string)), 0644)
@@ -43,6 +44,7 @@ func main() {
 		result := Login(*username, *password)
 		// 把token写入本地
 		if(result.Status!=SUCCESS){
+			printRespond(result)
 			return
 		}
 		ioutil.WriteFile("token", []byte(result.Data.(string)), 0644)
@@ -56,6 +58,7 @@ func main() {
 		result := ResetPassword(*password)
 		// 把token写入本地
 		if(result.Status!=SUCCESS){
+			printRespond(result)
 			return
 		}
 		ioutil.WriteFile("token", []byte(result.Data.(string)), 0644)
