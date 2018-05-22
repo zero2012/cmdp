@@ -5,12 +5,14 @@ import (
 	"fmt"
 	"io/ioutil"
 	"github.com/fatih/color"
+	"strconv"
 )
 
 func main() {
 	// 命令类型
 	isRegister := flag.Bool("register", false, "register command")
 	isLogin := flag.Bool("login", false, "login command")
+	isReset := flag.Bool("reset", false, "reset password command")
 
 	// 注册/登录用户
 	username := flag.String("u", "", "register by username")
@@ -27,32 +29,46 @@ func main() {
 
 	if (*isRegister) {
 		result := Register(*username, *password)
-
-		fmt.Println(result.Message)
 		// 把token写入本地
+		if(result.Status!=SUCCESS){
+			return
+		}
 		ioutil.WriteFile("token", []byte(result.Data.(string)), 0644)
 
 		fmt.Println("register")
-		fmt.Printf("username: %s\n", *username)
-		fmt.Printf("password: %s\n", *password)
+		printRespond(result)
 	}
 
 	if (*isLogin) {
 		result := Login(*username, *password)
-		fmt.Println(result.Message)
 		// 把token写入本地
+		if(result.Status!=SUCCESS){
+			return
+		}
 		ioutil.WriteFile("token", []byte(result.Data.(string)), 0644)
 
 		fmt.Println("login")
-		fmt.Printf("username: %s\n", *username)
-		fmt.Printf("password: %s\n", *password)
+		printRespond(result)
+	}
+
+
+	if (*isReset) {
+		result := ResetPassword(*password)
+		// 把token写入本地
+		if(result.Status!=SUCCESS){
+			return
+		}
+		ioutil.WriteFile("token", []byte(result.Data.(string)), 0644)
+
+		fmt.Println("reset password")
+		printRespond(result)
 	}
 
 	if (len(*cmd) > 0) {
 		result := Create(*cmd, *comment)
-		fmt.Println(result.Message)
 		fmt.Printf("command: %s\n", *cmd)
 		fmt.Printf("comment: %s\n", *comment)
+		printRespond(result)
 	}
 
 
@@ -65,8 +81,6 @@ func main() {
 		blue := color.New(color.FgBlue).SprintFunc()
 		red := color.New(color.FgRed).SprintFunc()
 
-
-		fmt.Println(result.Message)
 		cmds := result.Data
 		len := len(cmds)
 		for i := 0; i < len; i++ {
@@ -74,13 +88,29 @@ func main() {
 			// 支持windows
 			fmt.Fprintf(color.Output,"%s  %s id:%s\n", green(cmds[i].Cmd), blue(cmds[i].Comment), red(cmds[i].Id))
 		}
+		if(result.Status == SUCCESS){
+			color.Blue("results: "+strconv.Itoa(len))
+		}else{
+			color.Red(result.Message)
+		}
 	}
 
 	if(*id > 0){
-		fmt.Println(*id)
 		result := Delete(*id)
-		fmt.Println(result.Message)
+		if(result.Status == SUCCESS){
+			color.Green(result.Message)
+		}else{
+			color.Red(result.Message)
+		}
 	}
 
 	//fmt.Printf("success!")
+}
+
+func printRespond(result Respond)  {
+	if(result.Status == SUCCESS){
+		color.Green(result.Message)
+	}else{
+		color.Red(result.Message)
+	}
 }
