@@ -1,4 +1,4 @@
-[查看中文文档](https://github.com/yurencloud/cmdp/README-zh.md)
+[查看中文文档](https://github.com/yurencloud/cmdp/blob/master/README-zh.md)
 ## cmdp command prompt tool
 
 ## Usage Scenes
