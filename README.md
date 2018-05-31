@@ -37,10 +37,6 @@ If `Permission denied` occurs in mac or linux, please execute permission by the 
 ~~~
 chmod +x cmdp
 ~~~
-#### 1.3 Use node to simply package on the basis of cmdp, while no color shows after output.
-~~~
-npm install -g yu.cmdp
-~~~
 
 ## 2. Usage
 All the examples are listed under linux. You can change it into cmdp.exe so that it can work in windows.

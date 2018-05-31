@@ -36,12 +36,6 @@ go get github.com/yurencloud/cmdp
 chmod +x cmdp
 ~~~
 
-#### 1.3 npm 安装
-~~~
-// 使用node在cmdp基础上简单封装，缺点，输出没有色彩
-npm install -g yu.cmdp
-~~~
-
 ### 2.使用
 ~~~
 以下均以linux下操作为例，windows下改为cmdp.exe命令就可以
