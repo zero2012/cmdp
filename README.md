@@ -49,7 +49,7 @@ All the examples are listed under linux. You can change it into cmdp.exe so that
 ~~~
 cmdp -register -u USERNAME -p PASSWORD
 ~~~
-token file will be created after register, do not delete token file, token will expired after one year.
+token file will be created to GOROOT after register, do not delete token file, token will expired after one year.
 #### 2.2 Login
 If you have registered or the token has expired, or was deleted, please use the function of log in, then the new token will turn up.
 ~~~

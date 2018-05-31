@@ -47,7 +47,7 @@ func ResetPassword(password string) Respond  {
 	}
 
 	req.Header.Set("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8")
-	token, _ := ioutil.ReadFile("token")//从文件取出数据
+	token, _ := ReadToken()//从文件取出数据
 	req.Header.Set("Authorization", "Bearer "+string(token))
 
 

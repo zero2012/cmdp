@@ -3,7 +3,6 @@ package main
 import (
 	"flag"
 	"fmt"
-	"io/ioutil"
 	"github.com/fatih/color"
 	"strconv"
 )
@@ -34,7 +33,8 @@ func main() {
 			printRespond(result)
 			return
 		}
-		ioutil.WriteFile("token", []byte(result.Data.(string)), 0644)
+
+		CreateToken(result.Data)
 
 		fmt.Println("register")
 		printRespond(result)
@@ -47,7 +47,7 @@ func main() {
 			printRespond(result)
 			return
 		}
-		ioutil.WriteFile("token", []byte(result.Data.(string)), 0644)
+		CreateToken(result.Data)
 
 		fmt.Println("login")
 		printRespond(result)
@@ -61,7 +61,7 @@ func main() {
 			printRespond(result)
 			return
 		}
-		ioutil.WriteFile("token", []byte(result.Data.(string)), 0644)
+		CreateToken(result.Data)
 
 		fmt.Println("reset password")
 		printRespond(result)
@@ -106,8 +106,6 @@ func main() {
 			color.Red(result.Message)
 		}
 	}
-
-	//fmt.Printf("success!")
 }
 
 func printRespond(result Respond)  {

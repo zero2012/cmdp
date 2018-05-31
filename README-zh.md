@@ -50,7 +50,7 @@ npm install -g yu.cmdp
 ~~~
 cmdp -register -u USERNAME -p PASSWORD
 ~~~
-注册后自动在工具根目录下生成token文件，*请不要删除*，token有效期1年
+注册后自动在GOROOT目录下生成token文件，*请不要删除*，token有效期1年
 
 #### 2.2登录
 若已经注册，或token过期，或token删除，请使用登录功能，会生成新的token
