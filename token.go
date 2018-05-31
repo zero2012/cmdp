@@ -8,17 +8,17 @@ import (
 func CreateToken(token interface{}) {
 	GoRoot := runtime.GOROOT()
 	if runtime.GOOS == "windows" {
-		ioutil.WriteFile(GoRoot+"\\token", []byte(token.(string)), 0644)
+		ioutil.WriteFile(GoRoot+"\\cmdp_token", []byte(token.(string)), 0644)
 	} else {
-		ioutil.WriteFile(GoRoot+"/token", []byte(token.(string)), 0644)
+		ioutil.WriteFile("~/cmdp_token", []byte(token.(string)), 0644)
 	}
 }
 
 func ReadToken() ([]byte, error) {
 	GoRoot := runtime.GOROOT()
 	if runtime.GOOS == "windows" {
-		return ioutil.ReadFile(GoRoot + "\\token")
+		return ioutil.ReadFile(GoRoot + "\\cmdp_token")
 	} else {
-		return ioutil.ReadFile(GoRoot + "/token")
+		return ioutil.ReadFile("~/cmdp_token")
 	}
 }
