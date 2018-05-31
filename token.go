@@ -3,22 +3,39 @@ package main
 import (
 	"runtime"
 	"io/ioutil"
+	"fmt"
 )
 
 func CreateToken(token interface{}) {
 	GoRoot := runtime.GOROOT()
 	if runtime.GOOS == "windows" {
-		ioutil.WriteFile(GoRoot+"\\cmdp_token", []byte(token.(string)), 0644)
+		fmt.Println("create cmdp_token at :" + GoRoot + "\\cmdp_token")
+		err := ioutil.WriteFile(GoRoot+"\\cmdp_token", []byte(token.(string)), 0644)
+		if err!=nil {
+			fmt.Println(err)
+		}
 	} else {
-		ioutil.WriteFile(GoRoot + "/cmdp_token", []byte(token.(string)), 0644)
+		fmt.Println("create cmdp_token at :" + GoRoot + "/cmdp_token")
+		err := ioutil.WriteFile(GoRoot+"/cmdp_token", []byte(token.(string)), 0644)
+		if err!=nil {
+			fmt.Println(err)
+		}
 	}
 }
 
 func ReadToken() ([]byte, error) {
 	GoRoot := runtime.GOROOT()
 	if runtime.GOOS == "windows" {
-		return ioutil.ReadFile(GoRoot + "\\cmdp_token")
+		token, err := ioutil.ReadFile(GoRoot + "\\cmdp_token")
+		if err!=nil {
+			fmt.Println(err)
+		}
+		return token, err
 	} else {
-		return ioutil.ReadFile(GoRoot + "/cmdp_token")
+		token, err := ioutil.ReadFile(GoRoot + "/cmdp_token")
+		if err!=nil {
+			fmt.Println(err)
+		}
+		return token, err
 	}
 }
