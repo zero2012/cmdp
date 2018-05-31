@@ -8,6 +8,8 @@ import (
 )
 
 func main() {
+	isVersion := flag.Bool("v", false, "version")
+
 	// 命令类型
 	isRegister := flag.Bool("register", false, "register command")
 	isLogin := flag.Bool("login", false, "login command")
@@ -26,6 +28,10 @@ func main() {
 
 	flag.Parse()
 
+	if (*isVersion) {
+		fmt.Println("cmdp version 1.1.0")
+	}
+
 	if (*isRegister) {
 		result := Register(*username, *password)
 		// 把token写入本地
@@ -39,6 +45,7 @@ func main() {
 		fmt.Println("register")
 		printRespond(result)
 	}
+
 
 	if (*isLogin) {
 		result := Login(*username, *password)
