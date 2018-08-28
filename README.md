@@ -20,22 +20,6 @@
 go get github.com/yurencloud/cmdp
 ~~~
 
-#### 1.2 下载安装
-
-
-[windows下载](https://github.com/yurencloud/cmdp/raw/master/windows/cmdp.exe)
-
-[mac下载](https://github.com/yurencloud/cmdp/raw/master/mac/cmdp)
-
-[linux下载](https://github.com/yurencloud/cmdp/raw/master/linux/cmdp)
-
-工具可以直接使用，但建议将命令工具所在目录添加到系统路径`PATH`中
-
-在mac或linux若出现`Permission denied`问题，请用下面方法添加可执行权限
-~~~
-chmod +x cmdp
-~~~
-
 ### 2.使用
 ~~~
 以下均以linux下操作为例，windows下改为cmdp.exe命令就可以
