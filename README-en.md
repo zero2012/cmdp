@@ -1,4 +1,4 @@
-[查看中文文档](https://github.com/yurencloud/cmdp/blob/master/README-zh.md)
+[查看中文文档](https://github.com/yurencloud/cmdp/blob/master/README.md)
 ## cmdp command prompt tool
 
 ## Usage Scenes
@@ -21,21 +21,6 @@ systems and servers.
 You can directly install it according to the command listed below.
 ~~~
 go get github.com/yurencloud/cmdp
-~~~
-
-#### 1.2 Download & Installation
-
-[windows download](https://github.com/yurencloud/cmdp/raw/master/windows/cmdp.exe)
-
-[mac download](https://github.com/yurencloud/cmdp/raw/master/mac/cmdp)
-
-[linux download](https://github.com/yurencloud/cmdp/raw/master/linux/cmdp)
-
-You can directly use the tool, but are suggested adding the directory of the command tool to the system PATH.
-
-If `Permission denied` occurs in mac or linux, please execute permission by the following method:
-~~~
-chmod +x cmdp
 ~~~
 
 ## 2. Usage
