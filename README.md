@@ -1,5 +1,7 @@
 ## cmdp 命令行提示工具（远程同步）
 
+![demo](http://cloud.yurencloud.com/index.php/s/S0j84GRI7Xkr41H/download)
+
 #### 使用场景：
 
 命令行参数太多，太难记，平常可能会为了1条命令，新建一个笔记，来记录，查询麻烦。
